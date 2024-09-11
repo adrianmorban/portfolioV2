@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Logo from '../logo.png';
 import DR from '../dr.png';
-import USA from '../usa.png';
+// import USA from '../usa.png';
 
 const Navbar: React.FC = () => {
 
