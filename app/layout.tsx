@@ -8,6 +8,7 @@ import blob from "./blob.svg";
 import blob2 from "./blob-2.svg";
 
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,14 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-        <div className="overlay z-10">
-          <Image className="blur-[200px] w-[75%] opacity-20 -top-[55%] absolute -left-[35%]" src={blob} alt="Blob" />
-          <Image className="blur-[200px] w-[75%] opacity-15 -bottom-[55%] absolute -right-[40%]" src={blob2} alt="Blob" />
-        </div>
-        <main className="relative">
-          <Navbar />
+      <body className={`${inter.className} antialiased overflow-x-hidden`}>
+        <Navbar />
+        <main className="relative z-10 bg-black">
+          <div className="overlay">
+            <Image className="blur-[200px] w-[75%] opacity-30 -top-[55%] absolute -left-[35%]" src={blob} alt="Blob" />
+            <Image className="blur-[200px] w-[75%] opacity-20 -bottom-[55%] absolute -right-[40%]" src={blob2} alt="Blob" />
+          </div>
           {children}
+          <Footer />
         </main>
       </body>
     </html>

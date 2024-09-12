@@ -1,0 +1,3 @@
+Soy un capacitado desarrollador Full-Stack con experiencia en desarrollo web y una sólida formación técnica en Ingeniería de Sistemas. Competente en tecnologías como Node.js, PHP, Laravel y más, me destaco en la creación de soluciones web adaptadas a las diversas necesidades de los clientes.
+
+Mi experiencia incluye el desarrollo de páginas web, plataformas de comercio electrónico y herramientas web, con enfoque en optimización SEO y código de alta calidad. Me dedico a entregar resultados que superen las expectativas del cliente.

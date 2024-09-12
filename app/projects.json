@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Tienda RMC",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at elementum elit. Quisque nec ultricies augue. Vestibulum eleifend placerat convallis. Vestibulum commodo erat at elit ultricies maximus.",
+        "url": "https://tienda.rmc.com.do",
+        "technologies": ["Vue", "Laravel", "MySQL", "TailwindCSS", "Linux"]
+    },
+    {
+        "id": 2,
+        "name": "AVAN",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at elementum elit. Quisque nec ultricies augue. Vestibulum eleifend placerat convallis. Vestibulum commodo erat at elit ultricies maximus.",
+        "url": "https://avan.com.do",
+        "technologies": ["Vue", "Laravel", "MySQL", "TailwindCSS", "Linux"]
+    }
+]
