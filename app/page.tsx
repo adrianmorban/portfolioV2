@@ -12,8 +12,8 @@ import tiendaScreenshot from "./tienda.png"
 import avanScreenshot from "./avan.png";
 
 /*certification*/
-import AWSPracticioner from "./aws-1.png"
-import AWS from "./aws.png"
+// import AWSPracticioner from "./aws-1.png"
+// import AWS from "./aws.png"
 
 export default function Home() {
 
