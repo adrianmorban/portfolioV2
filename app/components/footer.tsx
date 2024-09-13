@@ -1,13 +1,43 @@
+"use client";
 import React from 'react';
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const Footer: React.FC = () => {
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message')
+        };
+        try {
+            const response = await axios.post('https://api.adrianmorban.com/send-form', data);
+            if(response.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Mensaje enviado',
+                    text: 'Gracias por contactarme, te responderé lo antes posible.'
+                });
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo un error al enviar el mensaje, por favor intenta de nuevo.'
+            });
+        }
+    };
 
     const year = new Date().getFullYear();
 
     return (
         <footer className='w-full flex flex-col items-center justify-center relative z-20 py-5'>
             <div className='w-full max-w-screen-md py-10'>
-                <form className='grid grid-cols-2 gap-x-5 gap-y-4'>
+                <form className='grid grid-cols-2 gap-x-5 gap-y-4' onSubmit={handleSubmit}>
                     <div className='w-full flex flex-col gap-4'>
                         <label htmlFor='name' className='text-slate-400'>Nombre</label>
                         <input type='text' name='name' placeholder='John Doe' className='w-full p-5 bg-transparent text-slate-400 rounded-md outline-none border border-slate-600 border-opacity-20' />

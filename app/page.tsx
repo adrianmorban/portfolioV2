@@ -9,7 +9,7 @@ import About from "./md/about-esp.md"
 import experience from "./experience.json"
 import projects from "./projects.json"
 import tiendaScreenshot from "./tienda.png"
-import avanScreenshot from "./avan.png"
+import avanScreenshot from "./avan.png";
 
 /*certification*/
 import AWSPracticioner from "./aws-1.png"
@@ -87,10 +87,10 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div className='flex mt-10'>
+              {/* <div className='flex mt-10'>
                 <Image src={AWSPracticioner} alt="AWS" className='h-24 w-auto' />
                 <Image src={AWS} alt="AWS" className='h-24 w-auto' />
-              </div>
+              </div> */}
             </div>
             <div className='flex text-slate-200 gap-x-4'>
               <FontAwesomeIcon icon={faLinkedin} className='w-6 h-6' />
