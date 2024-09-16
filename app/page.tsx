@@ -10,12 +10,15 @@ import experience from "./experience.json"
 import projects from "./projects.json"
 import tiendaScreenshot from "./tienda.png"
 import avanScreenshot from "./avan.png";
+import { useMouse } from "@uidotdev/usehooks";
 
 /*certification*/
 // import AWSPracticioner from "./aws-1.png"
 // import AWS from "./aws.png"
 
 export default function Home() {
+
+  const [mouse, ref] = useMouse<HTMLDivElement>();
 
   const skills = [
     { name: 'React', icon: faReact },
@@ -68,6 +71,11 @@ export default function Home() {
 
   return (
     <div className="w-full flex justify-center px-24 z-50">
+      <div className='fixed pointer-events-none' style={{zIndex: 100}} ref={ref}>
+        <div id="mouseContainer" className='w-screen h-0 pointer-events-none' style={{transform: `translate(${mouse.elementX}px, ${mouse.elementY - 40}px)`}}>
+          <div className='w-10 h-10 rounded-full border-2 border-slate-100 opacity-80 -translate-x-1/2 translate-y-1/2 pointer-events-none'></div>
+        </div>
+      </div>
       <div className="grid grid-cols-2 w-full max-w-screen-xl">
         <div className="min-h-screen">
           <div className="sticky top-0 h-screen pt-48 pb-10 flex flex-col justify-between">

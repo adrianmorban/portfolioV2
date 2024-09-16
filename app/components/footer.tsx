@@ -15,7 +15,12 @@ const Footer: React.FC = () => {
             message: formData.get('message')
         };
         try {
-            const response = await axios.post('https://api.adrianmorban.com/send-form', data);
+            const response = await axios.post('https://api.adrianmorban.com/send-form', data, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            });
             if(response.status === 200) {
                 Swal.fire({
                     icon: 'success',
@@ -35,7 +40,7 @@ const Footer: React.FC = () => {
     const year = new Date().getFullYear();
 
     return (
-        <footer className='w-full flex flex-col items-center justify-center relative z-20 py-5'>
+        <footer className='w-full flex flex-col items-center justify-center py-5 bg-black sticky bottom-0'>
             <div className='w-full max-w-screen-md py-10'>
                 <form className='grid grid-cols-2 gap-x-5 gap-y-4' onSubmit={handleSubmit}>
                     <div className='w-full flex flex-col gap-4'>

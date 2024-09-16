@@ -10,6 +10,8 @@ import blob2 from "./blob-2.svg";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 
+import LenisScroll from "./components/lenisScroll";
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -25,15 +27,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased overflow-x-hidden`}>
+        <LenisScroll />
         <Navbar />
-        <main className="relative z-10 bg-black">
+        <main className="z-10 relative bg-black">
           <div className="overlay">
             <Image className="blur-[200px] w-[75%] opacity-30 -top-[55%] absolute -left-[35%]" src={blob} alt="Blob" />
             <Image className="blur-[200px] w-[75%] opacity-20 -bottom-[55%] absolute -right-[40%]" src={blob2} alt="Blob" />
           </div>
-          {children}
-          <Footer />
+          <div className="-mt-[100vh]">
+            {children}
+          </div>
         </main>
+        <Footer />
       </body>
     </html>
   );
