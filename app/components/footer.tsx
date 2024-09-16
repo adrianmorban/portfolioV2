@@ -18,7 +18,6 @@ const Footer: React.FC = () => {
             const response = await axios.post('https://api.adrianmorban.com/send-form', data, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
                 }
             });
             if(response.status === 200) {
