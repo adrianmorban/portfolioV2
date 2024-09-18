@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "animate.css";
+import { ModalProvider } from "./context/modalContext";
+import { LanguageProvider } from "./context/languageContext";
+import { LoaderProvider } from "./context/loaderContext";
+import Loader from "./components/loader";
 
 import { Inter } from 'next/font/google';
 
@@ -9,6 +14,8 @@ import blob2 from "./blob-2.svg";
 
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import Modal from "./components/modal";
+import ProjectModal from "./components/projectModal";
 
 import LenisScroll from "./components/lenisScroll";
 
@@ -27,18 +34,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased overflow-x-hidden`}>
-        <LenisScroll />
-        <Navbar />
-        <main className="z-10 relative bg-black">
-          <div className="overlay">
-            <Image className="blur-[200px] w-[75%] opacity-30 -top-[55%] absolute -left-[35%]" src={blob} alt="Blob" />
-            <Image className="blur-[200px] w-[75%] opacity-20 -bottom-[55%] absolute -right-[40%]" src={blob2} alt="Blob" />
-          </div>
-          <div className="-mt-[100vh]">
-            {children}
-          </div>
-        </main>
-        <Footer />
+        <LoaderProvider>
+          <Loader />
+          <LanguageProvider>
+            <ModalProvider>
+              <LenisScroll />
+              <Navbar />
+              <main className="bg-black relative z-10">
+                <div className="overlay pointer-events-none">
+                  <Image className="blur-[200px] w-[75%] opacity-30 -top-[55%] absolute -left-[35%]" src={blob} alt="Blob" />
+                  <Image className="blur-[200px] w-[75%] opacity-20 -bottom-[55%] absolute -right-[40%]" src={blob2} alt="Blob" />
+                </div>
+                <div className="-mt-[100vh]">
+                  {children}
+                </div>
+              </main>
+              <Modal />
+              <ProjectModal />
+              <Footer />
+            </ModalProvider>
+          </LanguageProvider>
+        </LoaderProvider>
       </body>
     </html>
   );

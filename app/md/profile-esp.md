@@ -1,0 +1,1 @@
+Desarrollador full stack con enfoque en cloud computing, especializado en la implementación de soluciones escalables y optimizadas en AWS.

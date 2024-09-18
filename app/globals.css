@@ -2,12 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~@flaticon/flaticon-uicons/css/all/all";
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
+
 .overlay{
-    position: sticky;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    filter: blur(80px);
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(80px);
 }
 
 /*Lenis*/
@@ -34,5 +41,37 @@ html.lenis body {
 }
 
 #mouseContainer{
-    transition: all .6s cubic-bezier(0.19,1,0.22,1);
+  transition: all .6s cubic-bezier(0.19,1,0.22,1);
+}
+
+.modal{
+  -webkit-backdrop-filter: blur(10px);
+  align-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 15px .82px #ffffff1f;
+  left: 0;
+  overflow: hidden;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  /* will-change: var(--framer-will-change-override, transform); */
+  z-index: 30;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, white 94%,#0000) top/4px 4px no-repeat,
+         conic-gradient(#0000 30%, white);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 4px),#000 0);
+  mask: radial-gradient(farthest-side,#0000 calc(100% - 4px),#000 0);
+  animation: spinner-ub 0.8s infinite linear;
+}
+
+@keyframes spinner-ub {
+  100% {
+     transform: rotate(1turn);
+  }
 }

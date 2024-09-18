@@ -1,9 +1,11 @@
 "use client";
 import React from 'react';
 import axios from "axios";
-import Swal from "sweetalert2";
+import { useModal } from '../context/modalContext';
 
 const Footer: React.FC = () => {
+
+    const { openModal } = useModal();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -21,18 +23,11 @@ const Footer: React.FC = () => {
                 }
             });
             if(response.status === 200) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Mensaje enviado',
-                    text: 'Gracias por contactarme, te responderé lo antes posible.'
-                });
+                openModal(false);
+                form.reset();
             }
         } catch (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Hubo un error al enviar el mensaje, por favor intenta de nuevo.'
-            });
+            openModal(true);
         }
     };
 
@@ -44,18 +39,18 @@ const Footer: React.FC = () => {
                 <form className='grid grid-cols-2 gap-x-5 gap-y-4' onSubmit={handleSubmit}>
                     <div className='w-full flex flex-col gap-4'>
                         <label htmlFor='name' className='text-slate-400'>Nombre</label>
-                        <input type='text' name='name' placeholder='John Doe' className='w-full p-5 bg-transparent text-slate-400 rounded-md outline-none border border-slate-600 border-opacity-20' />
+                        <input required type='text' name='name' placeholder='John Doe' className='w-full p-5 bg-transparent text-slate-400 rounded-md outline-none border border-slate-600 border-opacity-50' />
                     </div>
                     <div className='w-full flex flex-col gap-4'>
                         <label htmlFor='email' className='text-slate-400'>Email</label>
-                        <input type='email' name='email' placeholder='John Doe' className='w-full p-5 bg-transparent text-slate-400 rounded-md outline-none border border-slate-600 border-opacity-20' />
+                        <input required type='email' name='email' placeholder='John Doe' className='w-full p-5 bg-transparent text-slate-400 rounded-md outline-none border border-slate-600 border-opacity-50' />
                     </div>
                     <div className='w-full col-span-2 flex flex-col gap-4'>
                         <label htmlFor='message' className='text-slate-400'>Mensaje</label>
-                        <textarea name='message' placeholder='Hola, estoy interesado en ...' className='w-full p-5 bg-transparent text-slate-400 rounded-md outline-none border border-slate-600 border-opacity-20' />
+                        <textarea required name='message' placeholder='Hola, estoy interesado en ...' className='w-full p-5 bg-transparent text-slate-400 rounded-md outline-none border border-slate-600 border-opacity-50' />
                     </div>
                     <div className='mt-4'>
-                        <button type='submit' className='w-fit px-12 py-3 bg-slate-800 text-white rounded-md outline-none border border-slate-600 border-opacity-20'>Enviar</button>
+                        <button type='submit' className='w-fit px-12 py-3 bg-slate-800 text-white rounded-md outline-none border border-slate-600 border-opacity-50 bg-opacity-20 hover:bg-opacity-50 transition-all duration-500'>Enviar</button>
                     </div>
                 </form>
             </div>

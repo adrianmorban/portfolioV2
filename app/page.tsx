@@ -2,21 +2,40 @@
 
 import Image from 'next/image';
 import { StaticImageData } from "next/dist/shared/lib/get-img-props";
+import { useLanguage } from './context/languageContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter, faGithub, faLinkedin, faInstagram, faCodepen} from '@fortawesome/free-brands-svg-icons'; 
-import { faReact, faVuejs, faWordpress, faNodeJs, faLaravel, faLinux, faDigitalOcean, faAws } from '@fortawesome/free-brands-svg-icons';
-import About from "./md/about-esp.md"
-import experience from "./experience.json"
+import { faGithub, faLinkedin, faReact, faVuejs, faWordpress, faNodeJs, faLaravel, faLinux, faDigitalOcean, faAws } from '@fortawesome/free-brands-svg-icons';
+
+import AboutESP from "./md/about-esp.md";
+import AboutENG from "./md/about-eng.md";
+
+import ProfileESP from "./md/profile-esp.md";
+import ProfileENG from "./md/profile-eng.md";
+
+import ExperienceESP from "./experience-esp.json";
+import ExperienceENG from "./experience-eng.json";
+
 import projects from "./projects.json"
 import tiendaScreenshot from "./tienda.png"
 import avanScreenshot from "./avan.png";
 import { useMouse } from "@uidotdev/usehooks";
+import { useModal } from "./context/modalContext";
+
+import ExperienceItem from './components/experienceItem';
 
 /*certification*/
-// import AWSPracticioner from "./aws-1.png"
-// import AWS from "./aws.png"
+import AWSPracticioner from "./aws-1.png"
+import AWS from "./aws.png"
 
 export default function Home() {
+
+  const { language } = useLanguage();
+
+  const Profile = language === 'eng' ? ProfileENG : ProfileESP;
+  const About = language === 'eng' ? AboutENG : AboutESP;
+  const Experience = language === 'eng' ? ExperienceENG : ExperienceESP;
+
+  const { openProjectModal } = useModal();
 
   const [mouse, ref] = useMouse<HTMLDivElement>();
 
@@ -35,9 +54,14 @@ export default function Home() {
     id: number,
     name: string,
     description: string,
+    longDescription: string,
     url: string,
     technologies: string[],
     image: StaticImageData,
+  }
+
+  const openProject = (project: Project) => () => {
+    openProjectModal(project);
   }
 
   const projectsFiltered = ():Project[] => {
@@ -49,6 +73,7 @@ export default function Home() {
           id: project.id,
           name: project.name,
           description: project.description,
+          longDescription: project.longDescription,
           url: project.url,
           technologies: project.technologies,
           image: tiendaScreenshot
@@ -59,6 +84,7 @@ export default function Home() {
           id: project.id,
           name: project.name,
           description: project.description,
+          longDescription: project.longDescription,
           url: project.url,
           technologies: project.technologies,
           image: avanScreenshot
@@ -82,8 +108,8 @@ export default function Home() {
             <div>
               <h1 className="text-6xl font-bold tracking-tight text-slate-200">Adrian Morbán</h1>
               <h2 className="text-xl text-slate-400 font-semibold mt-2">Full-Stack Developer</h2>
-              <div className='mt-2 max-w-[460px]'>
-                <p className='text-slate-200'>I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I’m focused on building accessible, human-centered products at Upstatement.</p>
+              <div className='mt-2 max-w-[460px] text-slate-200'>
+                <Profile />
               </div>
               <div className='text-slate-200 mt-10'>
                 <div className='grid grid-cols-8 gap-4 w-max'>
@@ -95,46 +121,43 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              {/* <div className='flex mt-10'>
-                <Image src={AWSPracticioner} alt="AWS" className='h-24 w-auto' />
-                <Image src={AWS} alt="AWS" className='h-24 w-auto' />
-              </div> */}
+              <div className='flex mt-10'>
+                <Image src={AWSPracticioner} alt="AWS" className='h-32 w-auto' />
+                <Image src={AWS} alt="AWS" className='h-32 w-auto' />
+              </div>
             </div>
             <div className='flex text-slate-200 gap-x-4'>
-              <FontAwesomeIcon icon={faLinkedin} className='w-6 h-6' />
-              <FontAwesomeIcon icon={faGithub} className='w-6 h-6' />
-              <FontAwesomeIcon icon={faCodepen} className='w-6 h-6' />
-              <FontAwesomeIcon icon={faXTwitter} className='w-6 h-6' />
-              <FontAwesomeIcon icon={faInstagram} className='w-6 h-6' />
+              <div className='flex items-center gap-x-2 cursor-pointer transition-all duration-300 hover:scale-110'>
+                <a href="https://www.linkedin.com/in/adrianmorban/" target="_blank">
+                  <FontAwesomeIcon icon={faLinkedin} className='w-6 h-6' />
+                </a>
+              </div>
+              <div className='flex items-center gap-x-2 cursor-pointer transition-all duration-300 hover:scale-110'>
+                <a href="https://github.com/adrianmorban" target="_blank">
+                  <FontAwesomeIcon icon={faGithub} className='w-6 h-6' />
+                </a>
+              </div>
             </div>
           </div>
         </div>
         <div className="text-slate-400 flex flex-col gap-4">
           <div className="py-48 flex flex-col gap-4">
-            <About />
-            <div className='flex flex-col gap-8 mt-10'>
-              <h2 className='text-2xl text-slate-200 font-semibold'>Experience</h2>
-              {experience.map((exp, i) => (
-                <div key={i} className='grid grid-cols-8 gap-4 transition-all duration-500 cursor-pointer hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:bg-slate-800/20 hover:backdrop-blur-3xl rounded-lg px-4 py-6 drop-shadow-lg'>
-                  <div className='col-span-2 text-xs'>
-                    <p>{`${exp.from} - ${exp.to}`}</p>
-                  </div>
-                  <div className='col-span-6'>
-                    <h3 className='text-slate-200 leading-none mb-1'>{exp.company}</h3>
-                    <p className='text-slate-500'>{exp.position}</p>
-                    <p className='text-sm'>{exp.description}</p>
-                    <div className='mt-2'>
-                      {exp.technologies.map((tech, i) => (
-                        <span key={i} className='text-xs bg-teal-400/10 text-teal-300 rounded-lg px-2 py-1 mr-2'>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+            <div id='about' className='flex flex-col gap-4'>
+              <About />
+            </div>
+            <div id="experience" className='flex flex-col gap-8 mt-10'>
+              <h2 className='text-2xl text-slate-200 font-semibold'>{language == 'eng' ? "Experience" : "Experiencia"}</h2>
+              {Experience.map((exp, i) => (
+                exp.url ? 
+                <a key={i} href={exp.url} target="_blank">
+                  <ExperienceItem key={i} {...exp} />
+                </a> :
+                <ExperienceItem key={i} {...exp} />
               ))}
-              <div className='flex flex-col gap-8 mt-10'>
-                <h2 className='text-2xl text-slate-200 font-semibold'>Projects</h2>
+              <div id="projects" className='flex flex-col gap-8 mt-10'>
+                <h2 className='text-2xl text-slate-200 font-semibold'>{language == 'eng' ? "Projects" : "Proyectos"}</h2>
                 {projectsFiltered().map((project, i:number) => (
-                <div key={i} className='grid grid-cols-8 gap-4 transition-all duration-500 cursor-pointer hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:bg-slate-800/20 hover:backdrop-blur-3xl rounded-lg px-4 py-6 drop-shadow-lg'>
+                <div onClick={openProject(project)} key={i} className='grid grid-cols-8 gap-4 transition-all duration-500 cursor-pointer hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:bg-slate-800/20 hover:backdrop-blur-3xl rounded-lg px-4 py-6 drop-shadow-lg'>
                   <div className='col-span-2'>
                     <Image className='rounded-md' src={project.image} alt="Project" />
                   </div>
