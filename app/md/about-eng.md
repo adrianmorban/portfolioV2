@@ -1,0 +1,3 @@
+I am a Full-stack developer with experience in technologies such as **Node.js**, **PHP**, **Laravel**, and **AWS** platforms. I specialize in building scalable solutions for web applications and e-commerce, with a focus on **automation** and **security**. I have worked on projects involving **serverless infrastructure** and API integration, allowing me to adapt to the technological needs of various industries.
+
+My technical skills are complemented by strong teamwork, project leadership, and problem-solving abilities in collaborative environments. I am committed to continuous learning to stay up-to-date with **technology trends**, enabling me to deliver value and exceed expectations in every project.

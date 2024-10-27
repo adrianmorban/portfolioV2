@@ -1,15 +1,13 @@
 "use client";
 import { createContext, useState, useContext, ReactNode } from 'react';
-import { StaticImageData } from 'next/image';
-
 type Project = {
     id: number,
     name: string,
     description: string,
-    longDescription: string,
+    longDescription: JSX.Element,
     url: string,
     technologies: string[],
-    image: StaticImageData,
+    thumbnail: string,
 }
 
 interface ModalContextProps {
@@ -35,6 +33,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
     const [thereWasError, setThereWasError] = useState(false);
 
     const openModal = (error: boolean = false) => {
+        document.body.classList.add('overflow-hidden');
         if(error) setThereWasError(true);
         setIsModalOpen(true);
     }
@@ -45,7 +44,10 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
         setIsProjectModalOpen(true);
     };
         
-    const closeModal = () => setIsModalOpen(false);
+    const closeModal = () => {
+        document.body.classList.remove('overflow-hidden');
+        setIsModalOpen(false);
+    };
 
     const closeProjectModal = () => setIsProjectModalOpen(false);
 

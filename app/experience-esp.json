@@ -5,8 +5,8 @@
         "to": "Act.",
         "company": "Novancy Studios",
         "position": "Cofundador & Desarrollador Web Full Stack",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at elementum elit. Quisque nec ultricies augue. Vestibulum eleifend placerat convallis. Vestibulum commodo erat at elit ultricies maximus. Sed urna magna, volutpat sit amet quam id, malesuada ultrices libero. Mauris quis urna sit amet felis efficitur consequat at a augue. Pellentesque convallis at sem eu elementum. Quisque interdum nibh id rutrum pellentesque. Donec hendrerit consequat tortor vitae euismod. Aliquam pretium mollis dui, sed dictum orci. Cras at fringilla est. Sed quis tellus ut leo luctus ullamcorper. Fusce pellentesque lorem in fermentum consectetur.",
-        "technologies": ["Javascript", "TypeScript"]
+        "description": "Dirigí y participé en el desarrollo y despliegue en la nube de aplicaciones web personalizadas para clientes de diversas industrias, con un enfoque principal en los sectores de finanzas y contabilidad. Además, contribuí a la creación de productos internos para Novancy Studios y en el desarrollo de soluciones SaaS diseñadas para mejorar la eficiencia y automatización de procesos empresariales.",
+        "technologies": ["AWS", "Node.js", "React", "CI/CD", "Linux", "MongoDB", "MySQL", "TailwindCSS", "Vue.js", "Laravel", "Azure"]
     },
     {
         "url": "https://wearecomunique.com", 
@@ -14,15 +14,15 @@
         "to": "Act.",
         "company": "Comunique Digital Agency",
         "position": "Desarrollador Web Full-Stack",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at elementum elit. Quisque nec ultricies augue. Vestibulum eleifend placerat convallis. Vestibulum commodo erat at elit ultricies maximus. Sed urna magna, volutpat sit amet quam id, malesuada ultrices libero. Mauris quis urna sit amet felis efficitur consequat at a augue. Pellentesque convallis at sem eu elementum. Quisque interdum nibh id rutrum pellentesque. Donec hendrerit consequat tortor vitae euismod. Aliquam pretium mollis dui, sed dictum orci. Cras at fringilla est. Sed quis tellus ut leo luctus ullamcorper. Fusce pellentesque lorem in fermentum consectetur.",
-        "technologies": ["Javascript", "TypeScript", "WordPress", "Node.js", "Angular", "AWS", "MongoDB", "MySQL", "TailwindCSS", "DigitalOcean", "Linux", "CloudFlare"]
+        "description": "Desarrollé y entregué páginas y aplicaciones web de alta calidad para una variedad de clientes destacados, incluyendo GlobalHealth, Grupo Corripio, Lanco, y Digo Hispanic Media, entre otros. Estos proyectos abarcaron diversas industrias, asegurando soluciones personalizadas y de alto impacto.",
+        "technologies": ["AWS", "Node.js", "MongoDB", "MySQL", "Linux", "DigitalOcean", "Vue.js", "TypeScript", "Angular", "TailwindCSS", "WordPress"]
     },
     {
         "from": "Oct. 2021",
         "to": "Mar. 2022",
         "company": "Asesoritech",
         "position": "Desarrollador Web Junior",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at elementum elit. Quisque nec ultricies augue. Vestibulum eleifend placerat convallis. Vestibulum commodo erat at elit ultricies maximus. Sed urna magna, volutpat sit amet quam id, malesuada ultrices libero. Mauris quis urna sit amet felis efficitur consequat at a augue. Pellentesque convallis at sem eu elementum. Quisque interdum nibh id rutrum pellentesque. Donec hendrerit consequat tortor vitae euismod. Aliquam pretium mollis dui, sed dictum orci. Cras at fringilla est. Sed quis tellus ut leo luctus ullamcorper. Fusce pellentesque lorem in fermentum consectetur.",
-        "technologies": ["Javascript", "PHP", "jQuery", "Vue", "Laravel", "MySQL", "Bootstrap"]
+        "description": "Participé en el mantenimiento y desarrollo de nuevas funcionalidades para software interno y soluciones SaaS dirigidas a clientes de la empresa. Además, colaboré en la obtención de la certificación del Ministerio de Hacienda, contribuyendo al cumplimiento de estándares clave en los productos de la empresa.",
+        "technologies": ["Laravel", "MySQL", "Vue.js", "jQuery", "Bootstrap"]
     }
 ]

@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 
 export default function LenisScroll() {
+    
     useEffect(() => {
         const lenis = new Lenis();
 

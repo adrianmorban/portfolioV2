@@ -1,0 +1,23 @@
+The Sally project is a serverless Telegram bot designed to optimize and automate the appointment scheduling for AMG Luxury Barbershop, integrating artificial intelligence to provide a smooth and efficient user experience. Sally uses the OpenAI API to manage conversations, allowing clients to interact naturally and schedule appointments without human intervention.
+
+### Technologies and Architecture
+
+Sally runs on a serverless architecture via AWS, enabling scalability and optimal performance. The workflow begins when a client sends a message to the bot on Telegram; this message is redirected through a webhook to an API Gateway, which in turn triggers a Lambda function in Node.js. The function processes the conversation, uses the OpenAI API to interpret the client's intent, and stores session data in DynamoDB. The serverless architecture reduces costs and simplifies maintenance, making Sally a flexible and sustainable solution.
+
+![image info](/projects/sally.svg)
+
+### Key Features
+
+The Telegram bot allows users to schedule appointments autonomously and quickly. The integration with OpenAI enables it to intelligently identify when a client wants to make an appointment. When this occurs, it checks real-time availability and, if a slot is open, saves the appointment in the database and notifies the client with a reservation confirmation. This automated interaction flow reduces staff workload and ensures that appointments are managed without delays or errors.
+
+### Design and User Experience (UX)
+
+The bot was designed to offer a user-friendly and accessible experience, focusing on natural language and an intuitive conversation interface. The implementation of OpenAI's AI allows the bot to understand variations in client requests, making the interaction smooth and similar to a human conversation.
+
+### Development Process
+
+The development of Sally was led from conception to production deployment. The project was structured in phases, including the integration of the Telegram and OpenAI APIs, configuring the workflow on AWS, and implementing the logic for appointment and session management in DynamoDB. Callbacks were also implemented to ensure each interaction remained clear and well-organized in the code.
+
+### Results and Impact
+
+Since its implementation, Sally has optimized appointment management at AMG Luxury Barbershop, freeing up time for the barbershop team and enhancing the customer experience by offering an easy and quick way to book. This automation system has allowed appointments to be handled accurately and without human intervention, ensuring clients receive prompt and organized service.

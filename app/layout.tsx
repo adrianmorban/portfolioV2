@@ -41,11 +41,11 @@ export default function RootLayout({
               <LenisScroll />
               <Navbar />
               <main className="bg-black relative z-10">
-                <div className="overlay pointer-events-none">
-                  <Image className="blur-[200px] w-[75%] opacity-30 -top-[55%] absolute -left-[35%]" src={blob} alt="Blob" />
-                  <Image className="blur-[200px] w-[75%] opacity-20 -bottom-[55%] absolute -right-[40%]" src={blob2} alt="Blob" />
+                <div className="overlay pointer-events-none fixed lg:sticky">
+                  <Image className="blur-[100px] lg:blur-[200px] lg:w-[75%] lg:opacity-30 absolute -top-[5%] -left-[10%] lg:-top-[55%] lg:-left-[35%]" src={blob} alt="Blob" />
+                  <Image className="blur-[100px] lg:blur-[200px] lg:w-[75%] lg:opacity-20 absolute -bottom-[5%] -right-[10%] lg:-bottom-[55%] lg:-right-[40%]" src={blob2} alt="Blob" />
                 </div>
-                <div className="-mt-[100vh]">
+                <div className="lg:-mt-[100vh]">
                   {children}
                 </div>
               </main>

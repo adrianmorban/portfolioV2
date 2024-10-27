@@ -1,0 +1,23 @@
+El proyecto Sally es un bot serverless de Telegram diseñado para optimizar y automatizar la agenda de citas de AMG Luxury Barbershop, integrando la inteligencia artificial para ofrecer una experiencia de usuario fluida y eficiente. Sally utiliza la API de OpenAI para manejar conversaciones, permitiendo a los clientes interactuar de manera natural y programar citas sin intervención humana.
+
+### Tecnologías y Arquitectura
+
+Sally se ejecuta en una arquitectura serverless mediante AWS, lo que permite escalabilidad y rendimiento óptimo. El flujo de trabajo se inicia cuando el cliente envía un mensaje al bot en Telegram; este mensaje se redirige a través de un webhook a un API Gateway, que a su vez activa una función Lambda en Node.js. La función procesa la conversación, utiliza la API de OpenAI para interpretar las intenciones del cliente, y almacena los datos de la sesión en DynamoDB. La arquitectura serverless reduce costos y facilita el mantenimiento, haciendo de Sally una solución flexible y sostenible.
+
+![image info](/projects/sally.svg)
+
+### Funciones Destacadas
+
+El bot de Telegram permite a los usuarios agendar citas de manera autónoma y rápida. La integración con OpenAI le permite identificar de manera inteligente cuando un cliente desea programar una cita. Al hacerlo, verifica la disponibilidad en tiempo real y, si hay un espacio libre, guarda la cita en la base de datos y notifica al cliente con la confirmación de su reserva. Este flujo de interacción automatizada reduce la carga de trabajo del personal y asegura que las citas se gestionen sin retrasos ni errores.
+
+### Diseño y Experiencia de Usuario (UX)
+
+El bot fue diseñado para ofrecer una experiencia de usuario amigable y accesible, enfocándose en un lenguaje natural y en una interfaz de conversación intuitiva. La implementación de IA de OpenAI permite al bot entender variaciones en las solicitudes de los clientes, lo que hace que la interacción sea fluida y similar a una conversación humana.
+
+### Proceso de Desarrollo
+
+El desarrollo de Sally fue liderado desde la concepción hasta la implementación en producción. El proyecto se estructuró en fases, incluyendo la integración de la API de Telegram y OpenAI, la configuración del flujo de trabajo en AWS, y la implementación de la lógica para la gestión de citas y sesiones en DynamoDB. Además, se implementaron callbacks para asegurar que cada interacción se mantuviera clara y organizada en el código.
+
+### Resultados e Impacto
+
+Desde su implementación, Sally ha optimizado la gestión de citas en AMG Luxury Barbershop, liberando tiempo para el equipo de la barbería y mejorando la experiencia del cliente al ofrecerle una forma fácil y rápida de reservar. Este sistema de automatización ha permitido manejar las reservas de forma precisa y sin intervención humana, asegurando que los clientes reciban un servicio puntual y organizado.
