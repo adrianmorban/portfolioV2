@@ -27,7 +27,7 @@ const projects = [
         "description": "Sally is a Telegram bot for AMG Luxury Barbershop that automatically schedules appointments. Using AI and a serverless architecture on AWS, it manages real-time bookings, optimizing the process without human intervention.",
         "longDescription": <Sally />,
         "url": "https://t.me/sallysalesthebot",
-        "technologies": ["Node.js", "Telegram API", "MongoDB", "AWS"],
+        "technologies": ["Node.js", "Telegram API", "AWS"],
         "thumbnail": "/projects/sally.svg",
     }
 ]

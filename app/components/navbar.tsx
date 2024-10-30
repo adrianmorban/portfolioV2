@@ -5,7 +5,7 @@ import Logo from '../logo.png';
 import { useLanguage } from '../context/languageContext';
 import { useLoader } from '../context/loaderContext';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
 
     const { language, changeLanguage } = useLanguage();
 
@@ -17,6 +17,11 @@ const Navbar: React.FC = () => {
         setTimeout(() => {
             setIsLoading(false);
         }, 500);
+    }
+
+    const goTo = (href: string) => () => {
+        if(href === '#contact')
+            window.scrollTo(0, document.body.scrollHeight);
     }
 
     const menuItems = () => {
@@ -37,6 +42,7 @@ const Navbar: React.FC = () => {
                 {
                     name: 'Contact',
                     href: '#contact',
+                    action: true,
                 },
             ];
         }
@@ -57,6 +63,7 @@ const Navbar: React.FC = () => {
                 {
                     name: 'Contacto',
                     href: '#contact',
+                    action: true,
                 },
             ];
         }
@@ -73,9 +80,15 @@ const Navbar: React.FC = () => {
                     </div>
                     <ul className='hidden md:flex items-center gap-8'>
                         {menuItems().map((item, index) => (
-                            <li key={index}>
-                                <a href={item.href} className='text-white hover:text-gray-300'>{item.name}</a>
-                            </li>
+                            item.action ? (
+                                <li key={index}>
+                                    <button onClick={goTo(item.href)} className='text-white hover:text-gray-300'>{item.name}</button>
+                                </li>
+                            ) : (
+                                <li key={index}>
+                                    <a href={item.href} className='text-white hover:text-gray-300'>{item.name}</a>
+                                </li>
+                            )
                         ))}
                     </ul>
                     <div className='flex items-center justify-center pr-4'>

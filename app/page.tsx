@@ -2,7 +2,7 @@
 import { useLanguage } from './context/languageContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faReact, faVuejs, faDocker, faNodeJs, faLaravel, faLinux, faDigitalOcean, faAws } from '@fortawesome/free-brands-svg-icons';
-
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import AboutESP from "./md/about-esp.md";
 import AboutENG from "./md/about-eng.md";
 
@@ -124,6 +124,12 @@ export default function Home() {
                   </a> :
                   <ExperienceItem key={i} {...exp} />
                 ))}
+              </div>
+              <div className='flex text-teal-400 hover:text-teal-300 cursor-pointer items-center gap-2'>
+                <a className='' href={language == 'eng' ? "/adrian-morban-cv-eng.pdf" : "/adrian-morban-cv-esp.pdf"} target="_blank">
+                  {language == "esp" ? "Ver CV completo": "View full resumé"}
+                </a>
+                <FontAwesomeIcon icon={faArrowUp} className='w-4 h-4 rotate-45' />
               </div>
               <div id="projects" className='flex flex-col lg:gap-8 gap-5 mt-5 lg:mt-10'>
                 <h2 className='text-2xl text-slate-200 font-semibold'>{language == 'eng' ? "Projects" : "Proyectos"}</h2>
